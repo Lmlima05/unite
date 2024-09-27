@@ -5,7 +5,7 @@ const app = fastify()
 
 app.get('/events', async (request, reply) => {
   const createEventSchema = z.object({
-    title: z.string().min(4),\
+    title: z.string().min(4),
     details: z.string().nullable(),
     maximumattendees: z.number().int().positive().nullable(),
   })

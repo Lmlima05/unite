@@ -2,5 +2,17 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-  "title": "Unite Summit"
+  "title": "Unite Summit",
+  "details": "Um evento para quem é apaixonado por programação",
+  "maximumAttendees": 100
+}
+
+###
+
+POST http://localhost:3333/events/72738c01-f63b-4687-8850-8215be064b51
+Content-Type: application/json
+
+{
+  "name": "Luan Melo",
+  "email": "luan.melo@poder360.com.br"
 }

@@ -50,6 +50,10 @@ export async function registerForEvent(app: FastifyInstance) {
           }
         })
 
+        if (event?.maximumAttendees && amountOfAttendeesForEvent >= event.maximumAttendees) {
+          throw new Error('The maximum number of attendees for this event has been reached.')
+        }
+
         const attendee = await prisma.attendee.create({
           data: {
             name,

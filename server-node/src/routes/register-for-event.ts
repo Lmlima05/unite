@@ -38,6 +38,18 @@ export async function registerForEvent(app: FastifyInstance) {
           throw new Error('This e-mail is already registered for this event.')
         }
 
+        const event = await prisma.event.findUnique({
+          where: {
+            eventId,
+          }
+        })
+
+        const amountOfAttendeesForEvent = await prisma.attendee.count({
+          where: {
+            eventId,
+          }
+        })
+
         const attendee = await prisma.attendee.create({
           data: {
             name,

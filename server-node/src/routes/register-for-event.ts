@@ -40,7 +40,7 @@ export async function registerForEvent(app: FastifyInstance) {
 
         const event = await prisma.event.findUnique({
           where: {
-            eventId,
+            id: eventId,
           }
         })
 

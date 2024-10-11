@@ -22,6 +22,12 @@ export async function getEvent(app: FastifyInstance) {
           title: true,
           slug: true,
           details: true,
+          maximumAttendees: true,
+          _count: {
+            select: {
+              attendees: true,
+            }
+          }
         },
         where: {
           id: eventId

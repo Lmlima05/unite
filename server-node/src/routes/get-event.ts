@@ -11,7 +11,19 @@ export async function getEvent(app: FastifyInstance) {
         params: z.object({
           eventId: z.string().uuid(),
         }),
-        response: {},
+        response: {
+          200: {
+            event: z.object({
+              id: z.string(),
+              title: z.string(),,
+              slug: z.string(),,
+              details: z.string(),
+              maximumAttendees: z.number().int().nullable(),
+              attendeesAmount: z.number().int(),
+            })
+
+          }
+        },
       }
     }, async (request, reply) => {
       const { eventId } = request.params
@@ -40,7 +52,7 @@ export async function getEvent(app: FastifyInstance) {
 
       return reply.send({
         event: {
-          id: event.id,
+          id:event.id,
           title: event.title,
           slug: event.slug,
           details: event.details,
@@ -49,5 +61,4 @@ export async function getEvent(app: FastifyInstance) {
         }
       })
     })
-
   }

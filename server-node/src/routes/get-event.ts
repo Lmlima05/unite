@@ -15,8 +15,8 @@ export async function getEvent(app: FastifyInstance) {
           200: {
             event: z.object({
               id: z.string(),
-              title: z.string(),,
-              slug: z.string(),,
+              title: z.string(),
+              slug: z.string(),
               details: z.string(),
               maximumAttendees: z.number().int().nullable(),
               attendeesAmount: z.number().int(),

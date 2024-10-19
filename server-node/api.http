@@ -16,3 +16,13 @@ Content-Type: application/json
   "name": "Luan Melo",
   "email": "luan.melo@poder360.com.br"
 }
+
+###
+
+Send Request
+GET http://localhost:3333/attendees/4/badge
+
+###
+
+Send Request
+GET http://localhost:3333/attendees/3/check-in

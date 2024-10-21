@@ -1,4 +1,6 @@
 import fastify from "fastify";
+import fastifySwagger from "@fastify/swagger"
+import fastifySwaggerUi from "@fastify/swagger-ui"
 import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod"; 
 import { createEvent } from "./routes/create-event";
 import { registerForEvent } from "./routes/register-for-event";
@@ -13,7 +15,7 @@ dotenv.config();
 const app = fastify()
 
 app.get('/teste', () => {
-  return 'Hello World'
+  return 'Hello World'  
 })
 
 app.setValidatorCompiler(validatorCompiler);

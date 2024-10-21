@@ -19,7 +19,7 @@ export async function getEventAttendees(app: FastifyInstance) {
           200: z.object({
             attendees: z.array(
               z.object({
-                id: z.string(),
+                id: z.number(),
                 name: z.string(),
                 email: z.string().email(),
                 createdAt: z.date(),
@@ -60,7 +60,7 @@ export async function getEventAttendees(app: FastifyInstance) {
         }
       })
 
-    return reply.send({ 
+    return reply.send({
       attendees: attendees.map(attendee => {
         return {
           id: attendee.id,
@@ -69,7 +69,8 @@ export async function getEventAttendees(app: FastifyInstance) {
           createdAt: attendee.createdAt,
           checkedInAt: attendee.checkIn?.createdAt ?? null,
         }
-      })
+      }) 
     })
   })
 }
+      

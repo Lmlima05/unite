@@ -13,7 +13,7 @@ export async function getEventAttendees(app: FastifyInstance) {
         }),
         querystring: z.object({
           query: z.string().nullish(),
-          pageIndex: z.string().nullable().default('0').transform(Number),
+          pageIndex: z.string().nullish().default('0').transform(Number),
         }),
         response: {},
       }

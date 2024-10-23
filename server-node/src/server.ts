@@ -1,7 +1,7 @@
 import fastify from "fastify";
 import fastifySwagger from "@fastify/swagger"
 import fastifySwaggerUi from "@fastify/swagger-ui"
-import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod"; 
+import { serializerCompiler, validatorCompiler, createJsonSchemaTransform, jsonSchemaTransform } from "fastify-type-provider-zod"; 
 import { createEvent } from "./routes/create-event";
 import { registerForEvent } from "./routes/register-for-event";
 import { getEvent } from "./routes/get-event";
@@ -12,7 +12,24 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const app = fastify()
+export const app = fastify()
+
+app.register(fastifySwagger, {
+  swagger: {
+    consumes: ['application/json'],
+    produces: ['application/json'],
+    info: {
+      title: 'pass.in',
+      description: 'Especificações da API para o back-end da aplicação pass.in construída durante o evento do NLW Unite da RocketSeat',
+      version: '1.0.0',
+    },
+  },
+  transform: jsonSchemaTransform,
+})
+
+app.register(fastifySwaggerUi, {
+  routePrefix: '/docs',
+})
 
 app.get('/teste', () => {
   return 'Hello World'  

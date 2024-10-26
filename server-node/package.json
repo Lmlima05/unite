@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/server.mjs",
     "build": "tsup src --format esm",
-    "dev": "NODE_ENV=development tsx watch src/server.ts",
+    "dev": "tsx watch --env-file .env src/server.ts",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio"
   },
@@ -20,12 +20,12 @@
     "@faker-js/faker": "8.4.1",
     "@types/node": "20.11.30",
     "prisma": "5.11.0",
-    "tsup": "8.0.2",
+    "tsup": "^8.0.2",
     "tsx": "^4.19.1",
     "typescript": "5.4.3"
   },
   "dependencies": {
-    "@fastify/cors": "9.0.1",
+    "@fastify/cors": "^9.0.1",
     "@fastify/swagger": "^8.14.0",
     "@fastify/swagger-ui": "^3.0.0",
     "@prisma/client": "5.11.0",

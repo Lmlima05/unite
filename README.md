@@ -1,26 +1,26 @@
-### Requisitos não-funcionais
+# pass.in
 
-- [ ] O check-in no evento será realizado atravéz de um QRcode;
+O pass.in é uma aplicação de **gestão de participantes em eventos presenciais**. 
 
-##  Anotações
+A ferramenta permite que o organizador cadastre um evento e abra uma página pública de inscrição.
 
-// Métodos HTTP: GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS, ...
+Os participantes inscritos podem emitir uma credencial para check-in no dia do evento.
 
-// Corpo da requisição (Request Body)
-// Parâmetros de busca (Search Params / Query Params) `http://localhost:3333/users?name=Luan`
-// Parâmetros de rota (Route Params) -> Identificação de recursos `DELETE http://localhost:3333/users/5`
-// Cabeçalhos (Headers) -> Contexto
+O sistema fará um scan da credencial do participante para permitir a entrada no evento.
 
-// Semânticas = Significado
+## Requisitos
 
-// Driver nativo / Query Builders / ORMs
+### Requisitos funcionais
 
-// Object Relational Mapping (Hibernate / Doctrine / ActiveRecord)
+-   O organizador deve poder cadastrar um novo evento;
+-   O organizador deve poder visualizar dados de um evento;
+-   O organizador deve poser visualizar a lista de participantes; 
+-   O participante deve poder se inscrever em um evento;
+-   O participante deve poder visualizar seu crachá de inscrição;
+-   O participante deve poder realizar check-in no evento;
 
-// JSON - JavaScript Object Notation
+### Regras de negócio
 
-// 2xx => Sucesso
-// 3xx => Redirecionamento
-// 4xx => Erro do cliente (Erro em alguma informação enviada por QUEM está fazendo a chamada p/ API)
-// 5xx => Erro do servidor (Um erro que está acontecendo INDEPENDENTE do que está sendo enviado p/ o servidor)
-
+-   O participante só pode se inscrever em um evento uma única vez;
+-   O participante só pode se inscrever em eventos com vagas disponíveis;
+-   O participante só pode realizar check-in em um evento uma única vez;
